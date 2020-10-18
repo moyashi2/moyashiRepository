@@ -51,7 +51,7 @@ public class EchoApplication {
     		Date d = new Date();
     		SimpleDateFormat date01 = new SimpleDateFormat("yyyy年MM月dd日HH時mm分ss秒");
     		String st01 = date01.format(d);
-    		return new TextMassage(st01 + "だよ");
+    		return new TextMessage( st01 + "だよ" );
     	}else{
     		return new TextMessage(originalMessageText);
     	}
