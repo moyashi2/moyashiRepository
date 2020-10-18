@@ -31,6 +31,7 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -52,6 +53,13 @@ public class EchoApplication {
     		SimpleDateFormat date01 = new SimpleDateFormat("yyyy年MM月dd日HH時mm分ss秒");
     		String st01 = date01.format(d);
     		return new TextMessage( st01 + "だよ" );
+    	}else if( originalMessageText.contains("ウミガメのスープ") ){
+    		Random r = new Random();
+    		String[] mis = {"女は男が大好きだった。"+ \n+"ある朝、男が倒れていたのを目撃した女は救急車を呼ぶことはなく、男は死んでしまった。何故？" +\n + "答え" + \n +"女は少女、男はおじいちゃん。救急車を呼びたいと思ったものの携帯は持っておらず、おじいちゃんの家の電話は黒電話だったため、使い方がわからなかった"
+    					,"女は高校に入学してしばらくたつと親にも先生にも友達にも嘘ばかりつくようになった。いったいなぜ？" + \n + "答え" +\n + "女は高校に入ってしばらくすると、治療法のない難病に侵されていることが判明した。" + \n +"入院後、見舞いに来た友人たちには心配させないようにすぐに元気なるよと嘘をついていた"
+    					,"男は仕事で失敗をしてしまい、同じ仕事をしていた仲間に頭を下げた。" + \n + "その後同じ仕事をしていたにも関わらず、仲間は一気に出世をし年収も増えた。一体どういうことだろうか？" + \n + "答え" + \n + "男の仕事は将棋の棋士で対局中に失敗をし負けてしまい頭を下げた。その結果仕事仲間は出世をし段が上がった"
+    		};
+    		return new TextMessage( "ウミガメのスープ問題！" + mid[r.nextInt(3)] );
     	}else{
     		return new TextMessage(originalMessageText);
     	}
