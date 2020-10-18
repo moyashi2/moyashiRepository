@@ -42,8 +42,13 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-    	if( originalMessageText.contains("おい、もやし野郎")){
+    	if( originalMessageText.contains("もやし野郎")){
     		return new TextMessage("なんだよ、もやし野郎");
+    	}else if( originalMessageText.contains("何日？") ){
+    		Date d = new Date();
+    		SimpleDateFormat date01 = new SimpleDateFormat("yyyy年MM月dd日HH時mm分ss秒");
+    		String st01 = date01.format(d);
+    		return new TextMassage(st01 + "だよ");
     	}else{
     		return new TextMessage(originalMessageText);
     	}
