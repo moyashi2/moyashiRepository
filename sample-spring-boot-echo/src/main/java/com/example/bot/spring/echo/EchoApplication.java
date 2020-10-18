@@ -43,7 +43,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
     	if( originalMessageText.contain("おい、もやし野郎")){
-    		return new TextMessage("なんだよ、もやし野郎")
+    		return new TextMessage("なんだよ、もやし野郎");
     	}else{
     		return new TextMessage(originalMessageText);
     	}
