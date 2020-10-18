@@ -42,7 +42,11 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        return new TextMessage(originalMessageText);
+    	if( originalMessageText.contain("おい、もやし野郎")){
+    		return new TextMessage("なんだよ、もやし野郎")
+    	}else{
+    		return new TextMessage(originalMessageText);
+    	}
     }
 
     @EventMapping
